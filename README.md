@@ -1,78 +1,209 @@
 # Personal Skills
 
-这是一个个人 Claude Code Skills 仓库，包含自定义的技能扩展。
+A personal Claude Code Skills repository containing custom skill extensions.
 
-## 如何添加 Skills 到 Claude Code
+## What are Claude Code Skills?
 
-### 方法一：直接复制文件
+Skills are **self-contained instruction sets** that teach Claude how to perform specific tasks. Each skill is a folder containing:
 
-将 skill 文件夹复制到 Claude Code 的 skills 目录：
+- `SKILL.md` - Main instruction file with YAML frontmatter
+- Supporting files (optional) - Reference guides, examples, scripts
+
+## How to Add Skills to Claude Code
+
+### Method 1: Clone to Skills Directory
 
 ```bash
-# 找到 Claude Code 的 skills 目录
-# 通常位于 ~/.claude/skills/ 或项目内的 .claude/skills/
+# Find your Claude Code skills directory
+# Usually: ~/.claude/skills/ or .claude/skills/
 
-# 复制 skill 文件夹
-cp -r skill-name ~/.claude/skills/
+# Clone this repository
+cd ~/.claude/skills/
+git clone https://github.com/LakerBlock/Personal-Skills.git
+
+# Or clone a specific skill
+cd ~/.claude/skills/
+git clone https://github.com/LakerBlock/Personal-Skills.git code-doc-generator
 ```
 
-### 方法二：使用 Git Submodule
+### Method 2: Copy Skill Folder
 
 ```bash
-# 在 Claude Code 项目中
+# Copy the skill folder to your skills directory
+cp -r /path/to/Personal-Skills/code-doc-generator ~/.claude/skills/
+```
+
+### Method 3: Git Submodule (Recommended for Projects)
+
+```bash
+# In your Claude Code project directory
 git submodule add https://github.com/LakerBlock/Personal-Skills.git .claude/skills/skill-name
+git submodule update --init --recursive
+
+# Update all submodules
 git submodule update --init --recursive
 ```
 
-### 方法三：克隆到指定目录
+### Method 4: Download Single Skill
 
 ```bash
-# 克隆到 Claude Code skills 目录
+# Download and extract a specific skill
 cd ~/.claude/skills/
-git clone https://github.com/LakerBlock/Personal-Skills.git skill-name
+curl -L https://github.com/LakerBlock/Personal-Skills/archive/refs/heads/main.tar.gz | tar xz
+mv Personal-Skills-main code-doc-generator
+rm -rf Personal-Skills-main
+```
+
+## Skill Structure
+
+Each skill follows this structure:
+
+```
+skill-name/
+├── SKILL.md              # Required: Main instructions with YAML frontmatter
+├── references/           # Optional: Supporting documentation
+│   ├── doc_template.md
+│   ├── analysis_patterns.md
+│   └── user_preferences.json
+├── scripts/              # Optional: Utility scripts
+│   └── helper.py
+└── assets/               # Optional: Resource files
+```
+
+## YAML Frontmatter Format
+
+Every `SKILL.md` must begin with YAML frontmatter:
+
+```yaml
+---
+name: skill-name
+description: A clear description of what this skill does and when to use it. This helps Claude discover and activate the skill appropriately.
+---
+```
+
+### Frontmatter Requirements
+
+| Field | Requirements |
+|-------|-------------|
+| `name` | Max 64 chars, lowercase with hyphens, no reserved words |
+| `description` | Non-empty, max 1024 chars, describe what and when |
+
+**Reserved words** (cannot use): `anthropic`, `claude`
+
+### Good Description Examples
+
+```yaml
+# Good: Specific with use cases
+description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
+
+# Good: Third person for system prompt
+description: Generates detailed technical documentation for Python projects. Use when users need to understand code flow, initialization process, or detailed code analysis.
 ```
 
 ## Available Skills
 
 ### code-doc-generator
 
-为 Python 项目生成详细的技术说明文档。
+Generates detailed technical documentation for Python projects.
 
-**功能**：
-- 自顶向下的项目分析
-- 时间线驱动的流程追踪
-- 详细的输入输出规格
-- 代码示例驱动
-- 架构图生成（Mermaid）
-- 用户偏好记忆
+**Features**:
+- Top-down project analysis
+- Timeline-driven execution tracing
+- Detailed input/output specifications
+- Code example driven
+- Mermaid architecture diagrams
+- User preference memory
 
-**支持的架构图**：
-- 项目目录结构图 (graph TD)
-- 模块依赖图 (graph LR)
-- 执行流程图 (flowchart TB)
-- 数据流图 (flowchart LR)
-- 类图 (classDiagram)
-- 时序图 (sequenceDiagram)
+**Architecture Diagrams**:
+- Project directory structure (graph TD)
+- Module dependency graph (graph LR)
+- Execution flow diagram (flowchart TB)
+- Data flow diagram (flowwatch LR)
+- Class diagram (classDiagram)
+- Sequence diagram (sequenceDiagram)
 
-**使用方法**：
+**Usage**:
 
+Use the Skill tool:
+```
+Use Skill tool to invoke code-doc-generator
+```
+
+Or call directly:
 ```python
 from Skill import code_doc_generator
 code_doc_generator.run(project_path="/path/to/your/project")
 ```
 
-或使用 Skill 工具：
+## Skill Naming Conventions
 
+Recommended: **Gerund form** (verb + -ing):
+- `processing-pdfs`
+- `analyzing-code`
+- `writing-documentation`
+
+Acceptable alternatives:
+- `pdf-processing`
+- `code-analysis`
+
+**Avoid**:
+- Vague names: `helper`, `utils`
+- Overly generic: `documents`, `data`
+- Reserved words: `anthropic-helper`, `claude-tools`
+
+## Best Practices
+
+Based on Anthropic's official guidelines:
+
+### Writing Effective SKILL.md
+
+1. **Keep it concise** - Challenge each piece of information
+2. **Use third person** - For system prompt injection
+3. **Be specific** - Include key terms for discoverability
+4. **Progressive disclosure** - Keep main file under 500 lines
+5. **Use references** - Link to detailed files
+
+### Architecture Diagrams
+
+Follow the patterns in `SKILL.md`:
+- Every project needs directory structure + execution flow
+- Complex projects add module dependency + data flow
+- Multi-class projects add class + sequence diagrams
+
+## Adding New Skills
+
+1. Create a new folder under skill name
+2. Add `SKILL.md` with proper YAML frontmatter
+3. Include supporting files if needed
+4. Update this README
+5. Commit and push to GitHub
+
+### Skill Template
+
+```yaml
+---
+name: new-skill-name
+description: A clear description of what this skill does and when to use it.
+---
+
+# New Skill Name
+
+[Add your instructions here]
+
+## Use Cases
+- Example 1
+- Example 2
+
+## Guidelines
+- Guideline 1
+- Guideline 2
 ```
-使用 Skill 工具调用 code-doc-generator
-```
 
-## 添加新的 Skill
+## References
 
-1. 在仓库根目录下创建新的 skill 文件夹
-2. 添加 `SKILL.md` 文件描述 skill 功能
-3. 提交并推送到 GitHub
-4. 更新本 README
+- [Official Skill Authoring Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+- [Anthropic Skills Repository](https://github.com/anthropics/skills)
+- [Claude Code Documentation](https://code.claude.com/docs/en/skills)
 
 ## License
 
