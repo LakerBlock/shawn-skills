@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "description": "User preferences for code documentation generation",
+  "preferences": {
+    "depth": {
+      "level": "detailed",
+      "description": "深入到每个函数/类的调用级别",
+      "include_private": false,
+      "include_internal": true
+    },
+    "structure": {
+      "top_down": true,
+      "include_directory_tree": true,
+      "include_module_dependencies": true,
+      "include_class_hierarchy": true
+    },
+    "dataflow": {
+      "enabled": true,
+      "show_timestamps": true,
+      "show_inputs_outputs": true,
+      "show_processing_details": true,
+      "include_examples": true
+    },
+    "format": {
+      "language": "zh-CN",
+      "markdown_style": "detailed",
+      "include_code_examples": true,
+      "include_diagnostics": true
+    }
+  },
+  "history": [],
+  "created_at": null,
+  "updated_at": null
+}
