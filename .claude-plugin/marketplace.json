@@ -1,0 +1,13 @@
+{
+  "name": "shawn-skills",
+  "owner": {
+    "name": "Shawn"
+  },
+  "plugins": [
+    {
+      "name": "code-doc-generator",
+      "source": "./code-doc-generator",
+      "description": "为 Python 项目生成详细的技术文档"
+    }
+  ]
+}
