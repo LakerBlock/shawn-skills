@@ -8,6 +8,11 @@
       "name": "code-doc-generator",
       "source": "./code-doc-generator",
       "description": "为 Python 项目生成详细的技术文档"
+    },
+    {
+      "name": "algorithm-explanator",
+      "source": "./skills/algorithm-explanator.md",
+      "description": "通用算法解释框架，用直观比喻和图解讲解算法"
     }
   ]
 }
