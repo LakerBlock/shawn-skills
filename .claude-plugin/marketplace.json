@@ -5,9 +5,20 @@
   },
   "plugins": [
     {
-      "name": "shawn-skills",
+      "name": "code-doc-generator",
       "source": "./",
-      "description": "Personal skills"
+      "description": "为 Python 项目生成详细的技术文档",
+      "skills": [
+        "./skills/code-doc-generator"
+      ]
+    },
+    {
+      "name": "algorithm-explanator",
+      "source": "./skills/algorithm-explanator",
+      "description": "通用算法解释框架，用直观比喻和图解讲解算法",
+      "skills": [
+        "./skills/algorithm-explanator"
+      ]
     }
   ]
 }
