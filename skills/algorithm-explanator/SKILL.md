@@ -13,8 +13,7 @@ description: 通用算法解释框架。用直观的比喻、逐步图解、代�
 
 ### 首次使用
 
-1. 询问用户保存路径（默认：`~/Documents/algorithm-explanations/`）
-2. 记录到 `references/user_preferences.json`
+询问用户保存路径（每一个对话当中都需要询问用户想要保存的路径）。
 
 ### 每次使用
 
