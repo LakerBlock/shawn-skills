@@ -290,7 +290,31 @@ def maxProfit(k, prices):
     return hold[____]
 ```
 
-**答案**：0, prices[i]-prices[i-1], 0, -prices[0], 1, 1, not_hold[j-1]-price, hold[j]+price, k
+**答案**：
+
+```python
+def maxProfit(k, prices):
+    n = len(prices)
+    if n == 0:
+        return 0
+
+    if k >= n // 2:
+        profit = 0
+        for i in range(1, n):
+            if prices[i] > prices[i-1]:
+                profit += prices[i]-prices[i-1]
+        return profit
+
+    hold = [0] * (k + 1)
+    not_hold = [-prices[0]] * (k + 1)
+
+    for price in prices[1:]:
+        for j in range(1, k + 1):
+            hold[j] = max(hold[j], not_hold[j-1]-price)
+            not_hold[j] = max(not_hold[j], hold[j]+price)
+
+    return hold[k]
+```
 
 ### 7.4 易错点提醒
 
