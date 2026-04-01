@@ -19,6 +19,14 @@
       "skills": [
         "./skills/algorithm-explanator"
       ]
+    },
+    {
+      "name": "code-writer",
+      "source": "./",
+      "description": "通用代码工程 Skill，覆盖写代码、改代码、重构、调试、测试、修 bug",
+      "skills": [
+        "./skills/code-writer"
+      ]
     }
   ]
 }

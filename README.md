@@ -13,6 +13,7 @@ claude plugin marketplace add LakerBlock/shawn-skills
 # Install skills
 claude plugin install code-doc-generator@shawn-skills
 claude plugin install algorithm-explanator@shawn-skills
+claude plugin install code-writer@shawn-skills
 ```
 
 ### Method 2: Manual Installation
@@ -33,6 +34,22 @@ git clone https://github.com/LakerBlock/shawn-skills.git ~/.claude/skills/shawn-
 - "分析一下模型初始化时每个时间点做了什么"
 - "生成一份数据流文档"
 - "这个模块是怎么工作的？"
+
+### code-writer
+
+通用代码工程 Skill。写代码、改代码、加功能、重构、调试、写测试、补测试、修 bug，只要涉及动代码，就触发此 skill。
+
+**核心承诺**：
+- 所有改动必须经过测试验证
+- 测试写在 `/test` 目录下的对应子模块
+- 绝不让已通过的测试变成失败（no pass-to-fail）
+
+**使用场景**:
+- "帮我实现这个功能"
+- "重构这段代码"
+- "修这个 bug"
+- "给这个模块补测试"
+- "优化这段代码的性能"
 
 ### algorithm-explanator
 
