@@ -7,6 +7,24 @@ description: >
 
 # Web Search Skill
 
+## 环境安装
+
+首次使用前，在 skill 目录下执行一次：
+
+```bash
+bash setup.sh
+```
+
+这会创建 `.venv` 并安装 `httpx`、`tiktoken`、`openai`。
+
+之后每次调用脚本前激活环境：
+
+```bash
+source .venv/bin/activate
+```
+
+---
+
 ## 脚本接口
 
 ### `scripts/search.py` — 批量 Google 搜索
