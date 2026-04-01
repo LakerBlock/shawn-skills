@@ -10,10 +10,8 @@ Personal Claude Code Skills collection.
 # Add marketplace
 claude plugin marketplace add LakerBlock/shawn-skills
 
-# Install skills
-claude plugin install code-doc-generator@shawn-skills
-claude plugin install algorithm-explanator@shawn-skills
-claude plugin install code-writer@shawn-skills
+# Install plugin
+claude plugin install shawn-skills
 ```
 
 ### Method 2: Manual Installation
@@ -67,6 +65,20 @@ git clone https://github.com/LakerBlock/shawn-skills.git ~/.claude/skills/shawn-
 - 每段代码都有详细解释
 - 深入解释"为什么这样设计"的逻辑思考过程
 - 包含面试答题模板（5分钟版）
+
+### chrome-cdp
+
+Chrome DevTools Protocol CLI。直接通过 WebSocket 连接本地 Chrome，无需 Puppeteer，支持 100+ 标签页，即时连接。
+
+**使用场景**:
+- "帮我截图当前打开的页面"
+- "获取这个页面的可访问性树"
+- "在 Chrome 里执行这段 JS"
+- "点击查看这个元素"
+
+**前置条件**:
+- Chrome 已开启远程调试（打开 `chrome://inspect/#remote-debugging` 并开启开关）
+- Node.js 22+
 
 ## License
 

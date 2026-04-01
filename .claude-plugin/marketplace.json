@@ -5,27 +5,14 @@
   },
   "plugins": [
     {
-      "name": "code-doc-generator",
+      "name": "shawn-skills",
       "source": "./",
-      "description": "为 Python 项目生成详细的技术文档",
+      "description": "Personal Claude Code Skills collection",
       "skills": [
-        "./skills/code-doc-generator"
-      ]
-    },
-    {
-      "name": "algorithm-explanator",
-      "source": "./",
-      "description": "通用算法解释框架，用直观比喻和图解讲解算法",
-      "skills": [
-        "./skills/algorithm-explanator"
-      ]
-    },
-    {
-      "name": "code-writer",
-      "source": "./",
-      "description": "通用代码工程 Skill，覆盖写代码、改代码、重构、调试、测试、修 bug",
-      "skills": [
-        "./skills/code-writer"
+        "./skills/code-doc-generator",
+        "./skills/algorithm-explanator",
+        "./skills/code-writer",
+        "./skills/chrome-cdp"
       ]
     }
   ]
