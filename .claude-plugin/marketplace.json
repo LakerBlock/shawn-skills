@@ -12,7 +12,8 @@
         "./skills/code-doc-generator",
         "./skills/algorithm-explanator",
         "./skills/code-writer",
-        "./skills/chrome-cdp"
+        "./skills/chrome-cdp",
+        "./skills/web-search-skill"
       ]
     }
   ]
