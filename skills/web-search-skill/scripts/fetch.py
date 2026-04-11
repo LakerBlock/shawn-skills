@@ -49,7 +49,7 @@ BROWSE_MODEL    = os.getenv("BROWSE_MODEL", "")
 BROWSE_BASE_URL = (os.getenv("BROWSE_BASE_URL")
                    or os.getenv("BROWSE_API_BASE")
                    or "http://localhost:4000")
-BROWSE_API_KEY  = os.getenv("BROWSE_API_KEY", "")
+BROWSE_API_KEY  = os.getenv("ANTHROPIC_AUTH_TOKEN", "")
 
 TOKEN_LIMIT = 120000
 MAX_RETRY   = 3
